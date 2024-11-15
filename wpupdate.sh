@@ -30,8 +30,8 @@ for SITE in "${SITELIST[@]}"; do
     fi
 
     cd "$WPROOT/$SITE/htdocs" || { echo "Error: Failed to cd into $WPROOT/$SITE/htdocs. Skipping $SITE."; continue; }
-    wp core update --allow-root
     wp plugin update --all --allow-root
+    wp core update --allow-root
 
 	# Successful update message
 	echo "$(date) - Update of $SITE completed successfully" >> "$Update_LOG"
